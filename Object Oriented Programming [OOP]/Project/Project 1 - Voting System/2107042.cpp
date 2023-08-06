@@ -6,11 +6,9 @@
 #include <iostream>
 using namespace std;
 
-
 class Election;
 class Voter;
 class VotingSystem;
-
 class Candidate{
     string name;
     string role;
