@@ -1,0 +1,360 @@
+------------ Voting System -----------
+1. Log in as an admin
+2. Log in as a voter
+3. Register as a new voter
+4. End the Election
+Choose an option : 1
+--------------------------------------
+Enter Admin Password : 1234
+Logged in Successfully!
+--------------------------------------
+1. Add New Role
+2. Add New Candidate
+3. Log Out
+Choose an option : 1
+--------------------------------------
+Enter the Role Name : CR
+Role CR added successfully.
+--------------------------------------
+1. Add New Role
+2. Add New Candidate
+3. Log Out
+Choose an option : 1
+--------------------------------------
+Enter the Role Name : ACR
+Role ACR added successfully.
+--------------------------------------
+1. Add New Role
+2. Add New Candidate
+3. Log Out
+Choose an option : 2
+--------------------------------------
+Enter Name : Nafiz Ahmed
+Available Roles :
+1. CR
+2. ACR
+Enter a role number : 1
+Enter Age : 20
+New Candidate added successfully.
+--------------------------------------
+1. Add New Role
+2. Add New Candidate
+3. Log Out
+Choose an option : 2
+--------------------------------------
+Enter Name : Daud Sharif
+Available Roles :
+1. CR
+2. ACR
+Enter a role number : 2
+Enter Age : 20
+New Candidate added successfully.
+--------------------------------------
+1. Add New Role
+2. Add New Candidate
+3. Log Out
+Choose an option : 2
+--------------------------------------
+Enter Name : Iftiaq Hossen
+Available Roles :
+1. CR
+2. ACR
+Enter a role number : 2
+Enter Age : 19
+New Candidate added successfully.
+--------------------------------------
+1. Add New Role
+2. Add New Candidate
+3. Log Out
+Choose an option : 2
+--------------------------------------
+Enter Name : Tawhidul Hasan
+Available Roles :
+1. CR
+2. ACR
+Enter a role number : 1
+Enter Age : 20
+New Candidate added successfully.
+--------------------------------------
+1. Add New Role
+2. Add New Candidate
+3. Log Out
+Choose an option : 2
+--------------------------------------
+Enter Name : Apu Sharma
+Available Roles :
+1. CR
+2. ACR
+Enter a role number : 2
+Enter Age : 19
+New Candidate added successfully.
+--------------------------------------
+1. Add New Role
+2. Add New Candidate
+3. Log Out
+Choose an option : 3
+--------------------------------------
+--------------------------------------
+--------------------------------------
+1. Log in as an admin
+2. Log in as a voter
+3. Register as a new voter
+4. End the Election
+Choose an option : 3
+--------------------------------------
+Enter Name : Sarwad
+Enter NID : 6
+Enter Password : 66
+Enter Age : 20
+New Voter added successfully.
+--------------------------------------
+1. Log in as an admin
+2. Log in as a voter
+3. Register as a new voter
+4. End the Election
+Choose an option : 3
+--------------------------------------
+Enter Name : Jawad
+Enter NID : 7
+Enter Password : 77
+Enter Age : 20
+New Voter added successfully.
+--------------------------------------
+1. Log in as an admin
+2. Log in as a voter
+3. Register as a new voter
+4. End the Election
+Choose an option : 3
+--------------------------------------
+Enter Name : Rakib
+Enter NID : 8
+Enter Password : 88
+Enter Age : 20
+New Voter added successfully.
+--------------------------------------
+1. Log in as an admin
+2. Log in as a voter
+3. Register as a new voter
+4. End the Election
+Choose an option : 3
+--------------------------------------
+Enter Name : Shejan
+Enter NID : 9
+Enter Password : 99
+Enter Age : 19
+New Voter added successfully.
+--------------------------------------
+1. Log in as an admin
+2. Log in as a voter
+3. Register as a new voter
+4. End the Election
+Choose an option : 3
+--------------------------------------
+Enter Name : Maruf
+Enter NID : 10
+Enter Password : 1010
+Enter Age : 20
+New Voter added successfully.
+--------------------------------------
+1. Log in as an admin
+2. Log in as a voter
+3. Register as a new voter
+4. End the Election
+Choose an option : 2
+--------------------------------------
+1. See Candidate List
+2. Search a Candidate
+3. Cast a Vote
+Choose an option : 1
+Role 1 : CR
+Nominated Candidates :
+ID - 1 : Nafiz Ahmed
+ID - 4 : Tawhidul Hasan
+Role 2 : ACR
+Nominated Candidates :
+ID - 2 : Daud Sharif
+ID - 3 : Iftiaq Hossen
+ID - 5 : Apu Sharma
+--------------------------------------
+1. Log in as an admin
+2. Log in as a voter
+3. Register as a new voter
+4. End the Election
+Choose an option : 2
+--------------------------------------
+1. See Candidate List
+2. Search a Candidate
+3. Cast a Vote
+Choose an option : 2
+Enter Candidate ID : 4
+Candidate Details :
+--------------------------------------
+Name : Tawhidul Hasan
+Role : CR
+Age : 20
+ID : 4
+Votes : 0
+--------------------------------------
+1. Log in as an admin
+2. Log in as a voter
+3. Register as a new voter
+4. End the Election
+Choose an option : 2
+--------------------------------------
+1. See Candidate List
+2. Search a Candidate
+3. Cast a Vote
+Choose an option : 3
+Enter NID : 6
+Enter Password : 66
+Role 1 : CR
+Nominated Candidates :
+ID - 1 : Nafiz Ahmed
+ID - 4 : Tawhidul Hasan
+Enter candidate ID to vote : 4
+Voted Successfully!
+Role 2 : ACR
+Nominated Candidates :
+ID - 2 : Daud Sharif
+ID - 3 : Iftiaq Hossen
+ID - 5 : Apu Sharma
+Enter candidate ID to vote : 2
+Voted Successfully!
+--------------------------------------
+--------------------------------------
+1. Log in as an admin
+2. Log in as a voter
+3. Register as a new voter
+4. End the Election
+Choose an option : 2
+--------------------------------------
+1. See Candidate List
+2. Search a Candidate
+3. Cast a Vote
+Choose an option : 3
+Enter NID : 7
+Enter Password : 77
+Role 1 : CR
+Nominated Candidates :
+ID - 1 : Nafiz Ahmed
+ID - 4 : Tawhidul Hasan
+Enter candidate ID to vote : 1
+Voted Successfully!
+Role 2 : ACR
+Nominated Candidates :
+ID - 2 : Daud Sharif
+ID - 3 : Iftiaq Hossen
+ID - 5 : Apu Sharma
+Enter candidate ID to vote : 3
+Voted Successfully!
+--------------------------------------
+--------------------------------------
+1. Log in as an admin
+2. Log in as a voter
+3. Register as a new voter
+4. End the Election
+Choose an option : 2
+--------------------------------------
+1. See Candidate List
+2. Search a Candidate
+3. Cast a Vote
+Choose an option : 3
+Enter NID : 8
+Enter Password : 88
+Role 1 : CR
+Nominated Candidates :
+ID - 1 : Nafiz Ahmed
+ID - 4 : Tawhidul Hasan
+Enter candidate ID to vote : 1
+Voted Successfully!
+Role 2 : ACR
+Nominated Candidates :
+ID - 2 : Daud Sharif
+ID - 3 : Iftiaq Hossen
+ID - 5 : Apu Sharma
+Enter candidate ID to vote : 5
+Voted Successfully!
+--------------------------------------
+--------------------------------------
+1. Log in as an admin
+2. Log in as a voter
+3. Register as a new voter
+4. End the Election
+Choose an option : 2
+--------------------------------------
+1. See Candidate List
+2. Search a Candidate
+3. Cast a Vote
+Choose an option : 3
+Enter NID : 9
+Enter Password : 99
+Role 1 : CR
+Nominated Candidates :
+ID - 1 : Nafiz Ahmed
+ID - 4 : Tawhidul Hasan
+Enter candidate ID to vote : 4
+Voted Successfully!
+Role 2 : ACR
+Nominated Candidates :
+ID - 2 : Daud Sharif
+ID - 3 : Iftiaq Hossen
+ID - 5 : Apu Sharma
+Enter candidate ID to vote : 2
+Voted Successfully!
+--------------------------------------
+--------------------------------------
+1. Log in as an admin
+2. Log in as a voter
+3. Register as a new voter
+4. End the Election
+Choose an option : 2
+--------------------------------------
+1. See Candidate List
+2. Search a Candidate
+3. Cast a Vote
+Choose an option : 3
+Enter NID : 10
+Enter Password : 1010
+Role 1 : CR
+Nominated Candidates :
+ID - 1 : Nafiz Ahmed
+ID - 4 : Tawhidul Hasan
+Enter candidate ID to vote : 4
+Voted Successfully!
+Role 2 : ACR
+Nominated Candidates :
+ID - 2 : Daud Sharif
+ID - 3 : Iftiaq Hossen
+ID - 5 : Apu Sharma
+Enter candidate ID to vote : 2
+Voted Successfully!
+--------------------------------------
+--------------------------------------
+1. Log in as an admin
+2. Log in as a voter
+3. Register as a new voter
+4. End the Election
+Choose an option : 4
+--------------------------------------
+Enter Admin Password : 1234
+Election Ended
+----------- Vote counting ------------
+Role 1 : CR
+Voting Result :
+Nafiz Ahmed : 2 votes
+Tawhidul Hasan : 3 votes
+
+Role 2 : ACR
+Voting Result :
+Daud Sharif : 3 votes
+Iftiaq Hossen : 1 votes
+Apu Sharma : 1 votes
+
+------------- Final Result -----------
+
+Winner for CR is Tawhidul Hasan
+Winner for ACR is Daud Sharif
+--------------------------------------
+
+Process returned 0 (0x0)   execution time : 399.728 s
+Press any key to continue.
