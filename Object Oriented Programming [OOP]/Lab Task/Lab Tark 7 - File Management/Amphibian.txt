@@ -1,0 +1,8 @@
+Name : ABC
+Habitat : DE
+Diet Type : water
+Number of Legs : 4
+Wing Span : 7.35
+Can fly ? : 1
+Is Cold Blooded ? : 1
+Has Scales ? : 0

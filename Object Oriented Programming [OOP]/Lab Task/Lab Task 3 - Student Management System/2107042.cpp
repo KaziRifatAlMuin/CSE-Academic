@@ -1,11 +1,5 @@
-/*
-    Name : Kazi Rifat Al Muin
-    Roll : 2107042
-*/
-
 #include <iostream>
 using namespace std;
-
 
 class StudentRecordManager;
 
