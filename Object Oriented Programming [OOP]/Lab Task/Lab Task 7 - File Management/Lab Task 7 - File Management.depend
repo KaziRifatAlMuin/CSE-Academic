@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1694515233 source:c:\users\user\onedrive\my codes\cse academic\object oriented programming [oop]\lab task\lab task 7 - file management\main.cpp
+	<iostream>
+	<fstream>
+
