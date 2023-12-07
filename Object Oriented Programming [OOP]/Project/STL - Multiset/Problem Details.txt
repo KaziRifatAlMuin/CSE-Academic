@@ -1,0 +1,36 @@
+Problem :
+There is a super market in Dhaka city. There are N shops. Each shop sells a some amount of chocolates.
+Let the number of chocolates in the shop be a1, a2, a3, ... , an and each of them is priced 1 taka.
+Each shop owner brings new chocolates with double price after selling all the chocolates from the shop.
+i.e. If the shop owner has 10 chocolates initially, after selling all he will buy 5 more chocolates of price 2 taka.
+Then after selling all of them, he will buy 2 more chocolates of price 4 taka. After selling all, he will buy 1 more of 8 taka. 
+After that, he can't buy anymore. So, highest possible number of chocolates he can sell is 10 + 5 + 2 + 1 = 18. 
+
+Rifat wants to buy maximum amount of chocolates from the market. But he can stay in the supermarket for K minutes.
+To make each purchase, it takes one minute. And the shop owner instantly brings new chocolates with double price after selling all chocolates.
+In one purchase, Rifat can buy chocolates from one shop only, but he can buy all the chocolates of the shop available at that time in one purchase.
+What is the maximum possible amount of chocolates he can buy?
+It can be assumed that he has sufficient money to buy any amount of chocolates.
+
+
+Input :
+N (Total Number of shops) K (Minutes that Rifat can stay)
+a1 a2 a3 ..... an (Number of chocolates initially in the shop)
+
+Output :
+Maximum possible amount of chocolates that Rifat can buy in K minutes
+
+Sample :
+Input :
+6 5
+4 7 10 5 6 3
+Output : 
+33
+
+Explanation :
+Available chocolates : 3 4 5 6 7 10 
+Available chocolates : 3 4 5 5 6 7 
+Available chocolates : 3 3 4 5 5 6 
+Available chocolates : 3 3 3 4 5 5 
+Available chocolates : 2 3 3 3 4 5 
+Total = 10 + 7 + 6 + 5 + 5 = 33
