@@ -60,7 +60,7 @@ public:
 	int& operator[](int index) {
         if (index < size && index >= 0) {
             return arr[index];
-        } 
+        }
         else {
             std::cerr << "Index out of Bounds!" << std::endl;
             exit(1);
@@ -70,9 +70,7 @@ public:
 
 int main()
 {
-	cout << "OK!\n";
 	Array ara;
-
 	int opt = 1;
 	while(opt){
 		cout << "Choose an option : \n";
@@ -108,7 +106,7 @@ int main()
 			int ix;
 			cout << "Enter the Index : ";
 			cin >> ix;
-		
+
 			ara.deleteElement(ix);
 			cout << "------------------------------\n";
 			ara.traverseArray();
@@ -130,11 +128,13 @@ int main()
 			cout << "------------------------------\n";
 			ara.traverseArray();
 		}
+		else if(opt == 0){
+            break;
+		}
 		else{
-			cout << "Wrong Key!\n";
+            cout << "Wrong Key!\n";
 		}
 		cout << "------------------------------\n";
 	}
-
 	return 0;
 }
