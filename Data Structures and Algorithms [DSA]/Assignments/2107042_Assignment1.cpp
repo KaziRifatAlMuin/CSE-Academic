@@ -1,3 +1,10 @@
+/*
+	Name : Kazi Rifat Al Muin
+	Roll : 2107042
+	Assignment No : 01
+	Topic : Implementing a custom Array with some functionalites
+*/
+
 #include <iostream>
 using namespace std;
 

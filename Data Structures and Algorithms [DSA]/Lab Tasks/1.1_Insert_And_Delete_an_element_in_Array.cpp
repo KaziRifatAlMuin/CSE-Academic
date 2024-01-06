@@ -12,7 +12,7 @@ void PrintArray(int ara[], int n)
 void Insertion(int ara[], int n, int pos, int value, int * ArraySize)
 {
     for(int i = n - 1; i >= pos; i--){
-        ara[i+1] = ara[i];
+        ara[i+1] = ara[i]; n 
     }
     ara[pos] = value;
     *ArraySize = n + 1;
