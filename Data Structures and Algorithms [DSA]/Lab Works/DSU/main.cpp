@@ -2,30 +2,7 @@
 using namespace std;
 int const N = 10000;
 
-class DSU{
-    int parent[N];
-public:
-    DSU(){}
-    void make_set(int v){
-        parent[v] = v;
-    }
 
-    int find_set(int v){
-        if(parent[v] == v) return v;
-        parent[v] = find_set(parent[v]);
-        return parent[v];
-    }
-
-    void union_set(int a, int b){
-        int root_a = find_set(a);
-        int root_b = find_set(b);
-        parent[root_b] = root_a;
-    }
-
-    bool is_Same_set(int a, int b){
-        return find_set(a) == find_set(b);
-    }
-};
 
 int main()
 {
