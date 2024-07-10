@@ -4,7 +4,8 @@ typedef long long int ll;
 long long int const MOD = 1e9 + 7;
 int const N = 1005;
 
-//Union Find Algorithm Almost O(1) for reasonable size N. O(log*N) to be precise
+// Union Find Algorithm Almost O(1) for reasonable size N. O(log*N) to be precise
+// This is for CP
 struct UnionFind {
 	int n;
 	vector<int> rank;

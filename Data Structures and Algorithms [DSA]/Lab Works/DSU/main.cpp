@@ -25,6 +25,7 @@ int main()
 
     dsu.union_set(3,6);
     dsu.union_set(1,5);
+				dsu.union_set(2,5);
 
     cout << dsu.is_Same_set(3,4) << "\n";
     cout << dsu.is_Same_set(2,6) << "\n";
