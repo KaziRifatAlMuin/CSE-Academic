@@ -13,5 +13,5 @@ This repository contains resources, assignments, and projects from various Compu
 ## Structure
 Each course is organized into folders containing lecture notes, assignments, and code implementations.
 
-## License
-This repository is licensed under the MIT License.
+## Goals and Usage
+The main objective of this repository is to serve as a reference for students looking to enhance their understanding of key CSE concepts. It can be used to review programming paradigms, explore algorithms, and practice lab assignments. I hope this repository helps others with their academic coursework and self-study.
