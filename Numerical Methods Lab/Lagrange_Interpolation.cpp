@@ -2,7 +2,7 @@
 using namespace std;
 typedef long long int ll;
 
-double LarrangeInterpolation(vector <double> x, vector <double> y, double new_x){
+double LagrangeInterpolation(vector <double> x, vector <double> y, double new_x){
     int n = x.size();
     double ans = 0;
     for(int i = 0; i < n; i++){
@@ -23,7 +23,7 @@ int main() {
     for(int i = 0; i < n; i++) cin >> y[i];
 
     double new_x = 2 * 12;
-    double ans = LarrangeInterpolation(x, y, new_x);
+    double ans = LagrangeInterpolation(x, y, new_x);
     cout << "Weight of the baby at 2 years will be ";
     cout << ans << " kg or " << ans * 2.20462 << " lbs \n";
 
