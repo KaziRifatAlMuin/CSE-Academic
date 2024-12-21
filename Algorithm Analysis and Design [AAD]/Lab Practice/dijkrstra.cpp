@@ -24,6 +24,7 @@ void dijkstra(int start){
         for(auto x : G[cur.v]){
             ll v = x.first;
             ll w = x.second;
+// extracondition needed 
             if(dist[v] > cur.w + w){
                 dist[v] = cur.w + w;
                 q.push({v, dist[v]});
