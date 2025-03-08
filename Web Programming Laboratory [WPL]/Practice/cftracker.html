@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Codeforces Last Verdict Tracker</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f8f9fa;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .input-container {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    input {
+      padding: 8px;
+      width: 300px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      margin-right: 10px;
+    }
+    button {
+      padding: 8px 12px;
+      border: none;
+      border-radius: 4px;
+      background: #007bff;
+      color: #fff;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+    #loading {
+      text-align: center;
+      margin: 20px 0;
+      font-size: 18px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    th, td {
+      padding: 10px;
+      border: 1px solid #ddd;
+      text-align: left;
+    }
+    th {
+      background: #007bff;
+      color: #fff;
+    }
+    tr:nth-child(even) {
+      background: #f2f2f2;
+    }
+    a {
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>Codeforces Last Verdict Tracker</h1>
+  <div class="input-container">
+    <label for="handles">Enter Codeforces Handles (comma separated): </label>
+    <input type="text" id="handles" placeholder="tourist, Radewoosh, user3">
+    <button onclick="fetchAndDisplay()">Track Solved Problems</button>
+  </div>
+  <div id="loading" style="display:none;">Loading...</div>
+  <table id="submissionsTable" style="display:none;">
+    <thead>
+      <tr>
+        <th>Handle</th>
+        <th>Problem</th>
+        <th>Verdict</th>
+        <th>Rating</th>
+        <th>Tags</th>
+        <th>Submission Time</th>
+      </tr>
+    </thead>
+    <tbody id="tableBody"></tbody>
+  </table>
+
+  <script>
+    // Returns a color based on the problem's rating using your specified ranges.
+    function getRatingColor(rating) {
+      if (!rating) return '#000';
+      if (rating < 1200) return 'gray';
+      else if (rating >= 1200 && rating < 1300) return 'green';
+      else if (rating >= 1400 && rating < 1500) return 'cyan';
+      else if (rating >= 1600 && rating < 1800) return 'blue';
+      else if (rating >= 1900 && rating < 2000) return 'purple';
+      else if (rating >= 2100 && rating < 2300) return 'orange';
+      else if (rating >= 2400) return 'red';
+      else return 'black';
+    }
+
+    // Convert raw verdict info to a friendly message.
+    function getFriendlyVerdict(sub) {
+      const verdict = sub.verdict;
+      if (verdict === "OK") return "Accepted";
+      if (verdict === "WRONG_ANSWER") {
+        // If passedTestCount exists, assume the failing test is (passedTestCount + 1)
+        if (typeof sub.passedTestCount === "number") {
+          return "Wrong Answer on test " + (sub.passedTestCount + 1);
+        } else {
+          return "Wrong Answer";
+        }
+      }
+      if (verdict === "TIME_LIMIT_EXCEEDED") return "TLE";
+      if (verdict === "MEMORY_LIMIT_EXCEEDED") return "MLE";
+      if (verdict === "COMPILATION_ERROR") return "Compilation Error";
+      if (verdict === "RUNTIME_ERROR") return "Runtime Error";
+      return verdict;
+    }
+
+    // Fetch up to 1000 submissions for a given handle.
+    async function fetchUserSubmissions(handle) {
+      try {
+        const response = await fetch(`https://codeforces.com/api/user.status?handle=${handle}&from=1&count=1000`);
+        const data = await response.json();
+        if (data.status === "OK") {
+          return data.result;
+        } else {
+          console.error(`Error for ${handle}:`, data.comment);
+          return [];
+        }
+      } catch (error) {
+        console.error(`Error fetching for ${handle}:`, error);
+        return [];
+      }
+    }
+
+    async function fetchAndDisplay() {
+      document.getElementById("loading").style.display = "block";
+      document.getElementById("submissionsTable").style.display = "none";
+      const handlesInput = document.getElementById("handles").value;
+      const handles = handlesInput.split(",").map(h => h.trim()).filter(h => h !== "");
+      let allSubmissions = [];
+      
+      // Fetch submissions for each handle concurrently.
+      const promises = handles.map(handle =>
+        fetchUserSubmissions(handle).then(submissions => {
+          // For each handle, group submissions by problem and keep the latest submission.
+          const latestMap = {};
+          submissions.forEach(sub => {
+            const key = `${sub.problem.contestId}-${sub.problem.index}`;
+            if (!latestMap[key] || sub.creationTimeSeconds > latestMap[key].creationTimeSeconds) {
+              latestMap[key] = sub;
+            }
+          });
+          // Attach the handle to each submission.
+          return Object.values(latestMap).map(sub => {
+            sub.handle = handle;
+            return sub;
+          });
+        })
+      );
+      
+      const results = await Promise.all(promises);
+      results.forEach(arr => {
+        allSubmissions = allSubmissions.concat(arr);
+      });
+      // Sort all submissions by creation time (latest on top)
+      allSubmissions.sort((a, b) => b.creationTimeSeconds - a.creationTimeSeconds);
+      displaySubmissions(allSubmissions);
+      document.getElementById("loading").style.display = "none";
+      document.getElementById("submissionsTable").style.display = "table";
+    }
+
+    function displaySubmissions(submissions) {
+      const tableBody = document.getElementById("tableBody");
+      tableBody.innerHTML = "";
+      if (submissions.length === 0) {
+        tableBody.innerHTML = "<tr><td colspan='6'>No submissions found for the given handles.</td></tr>";
+        return;
+      }
+      submissions.forEach(sub => {
+        const tr = document.createElement("tr");
+        
+        // Handle column.
+        const tdHandle = document.createElement("td");
+        tdHandle.textContent = sub.handle;
+        tr.appendChild(tdHandle);
+        
+        // Problem column: clickable link with colored problem name.
+        const tdProblem = document.createElement("td");
+        const ratingColor = getRatingColor(sub.problem.rating);
+        const a = document.createElement("a");
+        a.href = `https://codeforces.com/contest/${sub.problem.contestId}/problem/${sub.problem.index}`;
+        a.target = "_blank";
+        a.textContent = `${sub.problem.contestId}-${sub.problem.index}: ${sub.problem.name}`;
+        a.style.color = ratingColor;
+        tdProblem.appendChild(a);
+        tr.appendChild(tdProblem);
+        
+        // Verdict column.
+        const tdVerdict = document.createElement("td");
+        tdVerdict.textContent = getFriendlyVerdict(sub);
+        tr.appendChild(tdVerdict);
+        
+        // Rating column.
+        const tdRating = document.createElement("td");
+        tdRating.textContent = sub.problem.rating ? sub.problem.rating : "N/A";
+        tr.appendChild(tdRating);
+        
+        // Tags column.
+        const tdTags = document.createElement("td");
+        if (sub.problem.tags && sub.problem.tags.length > 0) {
+          tdTags.textContent = sub.problem.tags.join(", ");
+        } else {
+          tdTags.textContent = "N/A";
+        }
+        tr.appendChild(tdTags);
+        
+        // Submission Time column.
+        const tdTime = document.createElement("td");
+        tdTime.textContent = new Date(sub.creationTimeSeconds * 1000).toLocaleString();
+        tr.appendChild(tdTime);
+        
+        tableBody.appendChild(tr);
+      });
+    }
+  </script>
+</body>
+</html>
